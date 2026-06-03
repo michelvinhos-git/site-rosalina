@@ -190,6 +190,48 @@ main,
   border-color: var(--gold);
 }
 
+.cart-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(29, 55, 41, 0.18);
+  border-radius: 999px;
+  padding: 0.55rem 0.8rem;
+  color: var(--ink);
+  background: rgba(255, 250, 243, 0.95);
+  box-shadow: 0 12px 24px rgba(33, 40, 30, 0.08);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.cart-trigger span {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 999px;
+  color: #fffaf3;
+  background: var(--ink);
+  font-size: 0.78rem;
+}
+
+.cart-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 14;
+  display: none;
+  background: rgba(15, 23, 18, 0.35);
+}
+
+.cart-backdrop.open {
+  display: block;
+}
+
+body.cart-open {
+  overflow: hidden;
+}
+
 .hero {
   min-height: calc(100vh - 76px);
   display: grid;
@@ -489,7 +531,7 @@ h3 {
 
 .commerce-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(310px, 0.7fr);
+  grid-template-columns: 1fr;
   gap: 1.2rem;
   align-items: start;
 }
@@ -612,6 +654,40 @@ h3 {
   padding: 1.3rem;
 }
 
+.cart-drawer {
+  position: fixed !important;
+  top: 5rem;
+  right: 1rem;
+  z-index: 15;
+  display: none;
+  width: min(100vw - 1rem, 400px);
+  max-height: calc(100vh - 6rem);
+  overflow: auto;
+  border: 1px solid rgba(29, 55, 41, 0.16);
+  border-radius: 18px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(251, 246, 238, 0.96));
+  box-shadow: 0 20px 46px rgba(33, 40, 30, 0.18);
+}
+
+.cart-drawer.open {
+  display: grid;
+}
+
+.cart-close {
+  justify-self: end;
+  border: 0;
+  color: var(--ink);
+  background: transparent;
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.cart-close:hover {
+  color: #7d5d34;
+}
+
 .cart-header .eyebrow {
   margin-bottom: 0.35rem;
 }
@@ -646,7 +722,8 @@ h3 {
   font-weight: 800;
 }
 
-.checkout-form input {
+.checkout-form input,
+.checkout-form select {
   width: 100%;
   border: 1px solid rgba(29, 55, 41, 0.24);
   border-radius: 8px;
@@ -654,6 +731,25 @@ h3 {
   color: var(--text);
   background: #fffaf3;
   font: inherit;
+}
+
+.cart-summary {
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(29, 55, 41, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 250, 243, 0.82);
+}
+
+.cart-summary p {
+  margin-bottom: 0.4rem;
+}
+
+.cart-summary ul {
+  margin: 0;
+  padding-left: 1rem;
+  color: #4f5d53;
+  display: grid;
+  gap: 0.35rem;
 }
 
 .section-heading {

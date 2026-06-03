@@ -35,7 +35,63 @@
       <a href="#harmonizacao">Harmonização</a>
       <a href="#contato">Contato</a>
     </nav>
+    <button class="cart-trigger" id="cart-trigger" type="button" aria-label="Abrir carrinho" aria-controls="checkout-panel" aria-expanded="false">
+      🛒
+      <span id="cart-badge">0</span>
+    </button>
   </header>
+
+  <div class="cart-backdrop" id="cart-backdrop" aria-hidden="true"></div>
+
+  <aside class="cart cart-drawer" id="checkout-panel" aria-labelledby="cart-title">
+    <button class="cart-close" id="cart-close" type="button" aria-label="Fechar carrinho">×</button>
+    <div class="cart-header">
+      <p class="eyebrow">Carrinho</p>
+      <h3 id="cart-title">Seu pedido</h3>
+    </div>
+    <div class="cart-line">
+      <span>Rosalina Selection</span>
+      <strong id="cart-quantity">0 un.</strong>
+    </div>
+    <div class="cart-line">
+      <span>Subtotal</span>
+      <strong id="cart-total">R$ 0,00</strong>
+    </div>
+    <article class="cart-summary" aria-label="Resumo da compra">
+      <p class="eyebrow">Resumo</p>
+      <ul>
+        <li><strong>Produto:</strong> Rosalina Selection Branco 750 ml</li>
+        <li><strong>Quantidade:</strong> <span id="summary-quantity">0 un.</span></li>
+        <li><strong>Subtotal:</strong> <span id="summary-total">R$ 0,00</span></li>
+      </ul>
+    </article>
+    <form class="checkout-form" id="checkout-form">
+      <label>
+        Nome completo
+        <input type="text" name="cliente" placeholder="Seu nome" required>
+      </label>
+      <label>
+        Telefone / WhatsApp
+        <input type="tel" name="whatsapp" placeholder="(21) 98901-4962" required>
+      </label>
+      <label>
+        Forma de pagamento
+        <select name="pagamento" required>
+          <option value="">Selecione</option>
+          <option value="PIX">PIX</option>
+          <option value="Cartão de crédito">Cartão de crédito</option>
+          <option value="Transferência">Transferência bancária</option>
+          <option value="Dinheiro">Dinheiro</option>
+        </select>
+      </label>
+      <label>
+        Cidade e estado
+        <input type="text" name="cidade" placeholder="Ex.: Bento Gonçalves, RS" required>
+      </label>
+      <button type="submit">Enviar pedido no WhatsApp</button>
+      <p class="form-status" id="checkout-status" role="status" aria-live="polite"></p>
+    </form>
+  </aside>
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
@@ -47,7 +103,7 @@
           celebrar momentos especiais com autenticidade, delicadeza e elegância.
         </p>
         <div class="hero-actions">
-          <a class="button primary" href="#comprar">Comprar agora</a>
+          <a class="button primary" href="#comprar" id="buy-now-cta">Comprar agora</a>
           <a class="button ghost" href="#ficha">Ver ficha técnica</a>
           <a class="button ghost" href="#harmonizacao">Harmonizar</a>
         </div>
@@ -115,36 +171,6 @@
           </div>
         </article>
 
-        <aside class="cart" aria-labelledby="cart-title">
-          <div class="cart-header">
-            <p class="eyebrow">Carrinho</p>
-            <h3 id="cart-title">Seu pedido</h3>
-          </div>
-          <div class="cart-line">
-            <span>Rosalina Selection</span>
-            <strong id="cart-quantity">0 un.</strong>
-          </div>
-          <div class="cart-line">
-            <span>Subtotal</span>
-            <strong id="cart-total">R$ 0,00</strong>
-          </div>
-          <form class="checkout-form" id="checkout-form">
-            <label>
-              Nome completo
-              <input type="text" name="cliente" placeholder="Seu nome" required>
-            </label>
-            <label>
-              WhatsApp
-              <input type="tel" name="whatsapp" placeholder="(00) 00000-0000" required>
-            </label>
-            <label>
-              Cidade e estado
-              <input type="text" name="cidade" placeholder="Ex.: Bento Gonçalves, RS" required>
-            </label>
-            <button type="submit">Finalizar pedido</button>
-            <p class="form-status" id="checkout-status" role="status" aria-live="polite"></p>
-          </form>
-        </aside>
       </div>
     </section>
 
@@ -293,11 +319,20 @@
     const quantityInput = document.querySelector("#quantity");
     const quantityButtons = document.querySelectorAll(".quantity-button");
     const addToCartButton = document.querySelector(".add-to-cart");
+    const buyNowCta = document.querySelector("#buy-now-cta");
+    const cartTrigger = document.querySelector("#cart-trigger");
+    const cartBackdrop = document.querySelector("#cart-backdrop");
+    const cartPanel = document.querySelector("#checkout-panel");
+    const cartClose = document.querySelector("#cart-close");
+    const cartBadge = document.querySelector("#cart-badge");
     const cartQuantity = document.querySelector("#cart-quantity");
     const cartTotal = document.querySelector("#cart-total");
+    const summaryQuantity = document.querySelector("#summary-quantity");
+    const summaryTotal = document.querySelector("#summary-total");
     const checkoutForm = document.querySelector("#checkout-form");
     const checkoutStatus = document.querySelector("#checkout-status");
     const unitPrice = Number(document.querySelector(".price").dataset.unitPrice);
+    const whatsappNumber = "5521989014962";
     let cartCount = 0;
 
     const currency = new Intl.NumberFormat("pt-BR", {
@@ -311,9 +346,26 @@
       return normalized;
     }
 
+    function openCart() {
+      cartPanel.classList.add("open");
+      cartBackdrop.classList.add("open");
+      cartTrigger.setAttribute("aria-expanded", "true");
+      document.body.classList.add("cart-open");
+    }
+
+    function closeCart() {
+      cartPanel.classList.remove("open");
+      cartBackdrop.classList.remove("open");
+      cartTrigger.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("cart-open");
+    }
+
     function updateCart() {
       cartQuantity.textContent = `${cartCount} un.`;
       cartTotal.textContent = currency.format(cartCount * unitPrice);
+      summaryQuantity.textContent = `${cartCount} un.`;
+      summaryTotal.textContent = currency.format(cartCount * unitPrice);
+      cartBadge.textContent = String(cartCount);
     }
 
     quantityButtons.forEach((button) => {
@@ -324,21 +376,60 @@
 
     quantityInput.addEventListener("input", () => setQuantity(quantityInput.value));
 
-    addToCartButton.addEventListener("click", () => {
+    cartTrigger.addEventListener("click", openCart);
+    cartBackdrop.addEventListener("click", closeCart);
+    cartClose.addEventListener("click", closeCart);
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeCart();
+      }
+    });
+
+    function addToCart() {
       cartCount += setQuantity(quantityInput.value);
       updateCart();
-      checkoutStatus.textContent = "Produto adicionado ao carrinho.";
+      checkoutStatus.textContent = `Produto adicionado ao carrinho: ${setQuantity(quantityInput.value)} unidade(s).`;
+      quantityInput.value = 1;
+    }
+
+    addToCartButton.addEventListener("click", () => {
+      addToCart();
+    });
+
+    buyNowCta.addEventListener("click", (event) => {
+      event.preventDefault();
+      addToCart();
+      document.querySelector("#comprar").scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
     checkoutForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
       if (cartCount < 1) {
-        checkoutStatus.textContent = "Adicione pelo menos uma garrafa ao carrinho.";
+        checkoutStatus.textContent = "Adicione pelo menos uma garrafa ao carrinho antes de enviar.";
         return;
       }
 
-      checkoutStatus.textContent = `Pedido recebido: ${cartCount} garrafa(s), total ${currency.format(cartCount * unitPrice)}.`;
+      const formData = new FormData(checkoutForm);
+      const cliente = String(formData.get("cliente") || "").trim();
+      const whatsapp = String(formData.get("whatsapp") || "").trim();
+      const cidade = String(formData.get("cidade") || "").trim();
+      const pagamento = String(formData.get("pagamento") || "").trim();
+      const total = cartCount * unitPrice;
+      const message = [
+        "Olá! Quero finalizar meu pedido Rosalina Selection.",
+        `Nome: ${cliente}`,
+        `WhatsApp: ${whatsapp}`,
+        `Cidade/Estado: ${cidade}`,
+        `Forma de pagamento: ${pagamento}`,
+        `Quantidade: ${cartCount} unidade(s)`,
+        `Subtotal: ${currency.format(total)}`,
+        "Produto: Rosalina Selection Branco 750 ml"
+      ].join("%0A");
+
+      window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank", "noopener,noreferrer");
+      checkoutStatus.textContent = "Pedido enviado para o WhatsApp. Aguarde o contato da equipe.";
       checkoutForm.reset();
       cartCount = 0;
       updateCart();
