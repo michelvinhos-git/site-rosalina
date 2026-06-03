@@ -137,6 +137,7 @@ a {
   justify-content: space-between;
   gap: 1.5rem;
   padding: 1rem clamp(1rem, 5vw, 4rem);
+  padding-right: calc(clamp(1rem, 5vw, 4rem) + 6rem);
   border-bottom: 1px solid var(--line);
   background: rgba(251, 246, 238, 0.88);
   backdrop-filter: blur(18px);
@@ -191,6 +192,10 @@ main,
 }
 
 .cart-trigger {
+  position: fixed;
+  top: 1rem;
+  right: clamp(1rem, 3vw, 2rem);
+  z-index: 16;
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
@@ -233,6 +238,8 @@ body.cart-open {
 }
 
 .hero {
+  position: relative;
+  overflow: hidden;
   min-height: calc(100vh - 76px);
   display: grid;
   grid-template-columns: minmax(0, 0.92fr) minmax(320px, 0.78fr);
@@ -241,8 +248,30 @@ body.cart-open {
   padding: clamp(2rem, 5vw, 4.5rem) clamp(1rem, 5vw, 4rem) 2.5rem;
 }
 
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(251, 246, 238, 0.90) 0%,
+    rgba(251, 246, 238, 0.68) 45%,
+    rgba(251, 246, 238, 0.18) 100%
+  );
+}
+
 .hero-copy {
   position: relative;
+  z-index: 2;
   max-width: 720px;
 }
 
@@ -349,6 +378,7 @@ h3 {
 
 .hero-visual {
   position: relative;
+  z-index: 2;
   margin: 0;
   justify-self: center;
 }
@@ -967,6 +997,7 @@ h3 {
   .site-header {
     align-items: flex-start;
     flex-direction: column;
+    padding-right: clamp(1rem, 5vw, 4rem);
   }
 
   .nav {
