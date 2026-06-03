@@ -5,9 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rosalina Selection | Vinho Branco</title>
   <meta name="description" content="Rosalina Selection, vinho branco português leve e aromático da região dos Vinhos Verdes.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rosalina Selection | Vinho Branco Português">
+  <meta property="og:description" content="Vinho branco português leve e aromático da região dos Vinhos Verdes. Loureiro, Trajadura e Avesso. 750 ml.">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Rosalina Selection Branco 750 ml",
+    "description": "Vinho branco português leve, aromático e refrescante, produzido em Portugal, na região dos Vinhos Verdes, em Amarantes.",
+    "brand": { "@type": "Brand", "name": "Rosalina Selection" },
+    "offers": {
+      "@type": "Offer",
+      "price": "117.90",
+      "priceCurrency": "BRL",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍷</text></svg>">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -37,7 +58,7 @@
     </nav>
     <button class="cart-trigger" id="cart-trigger" type="button" aria-label="Abrir carrinho" aria-controls="checkout-panel" aria-expanded="false">
       🛒
-      <span id="cart-badge">0</span>
+      <span id="cart-badge" class="hidden">0</span>
     </button>
   </header>
 
@@ -51,7 +72,11 @@
     </div>
     <div class="cart-line">
       <span>Rosalina Selection</span>
-      <strong id="cart-quantity">0 un.</strong>
+      <div class="cart-qty-controls">
+        <button type="button" class="cart-qty-btn" id="cart-qty-minus" aria-label="Remover uma unidade">−</button>
+        <strong id="cart-quantity">0 un.</strong>
+        <button type="button" class="cart-qty-btn" id="cart-qty-plus" aria-label="Adicionar uma unidade">+</button>
+      </div>
     </div>
     <div class="cart-line">
       <span>Subtotal</span>
@@ -130,7 +155,7 @@
         <small>Teor alcoólico</small>
       </article>
       <article>
-        <span class="fact-icon">BR</span>
+        <span class="fact-icon">PT</span>
         <strong>Vinho Verde</strong>
         <small>Origem</small>
       </article>
@@ -149,7 +174,7 @@
       <div class="commerce-layout">
         <article class="product-card">
           <div class="product-media">
-            <img src="assets/vinho-rosalina-fundo-branco.png" alt="Garrafa do vinho Rosalina Selection em fundo branco">
+            <img src="assets/vinho-rosalina-fundo-branco.png" alt="Garrafa do vinho Rosalina Selection em fundo branco" loading="lazy">
           </div>
           <div class="product-info">
             <p class="stock">Em estoque</p>
@@ -223,7 +248,7 @@
         <h2 id="ficha-title">Rosalina em detalhes</h2>
       </div>
       <figure class="tech-sheet">
-        <img src="assets/ficha-tecnica-rosalina-paisagem.png" alt="Ficha técnica completa do vinho Rosalina Selection em formato paisagem">
+        <img src="assets/ficha-tecnica-rosalina-paisagem.png" alt="Ficha técnica completa do vinho Rosalina Selection em formato paisagem" loading="lazy">
       </figure>
     </section>
 
@@ -255,27 +280,27 @@
       </div>
       <div class="pairing-grid">
         <article>
-          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=260&fit=crop&auto=format" alt="Frutos do mar frescos">
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=260&fit=crop&auto=format" alt="Frutos do mar frescos" loading="lazy" onerror="this.style.display='none'">
           <span>Frutos do mar</span>
         </article>
         <article>
-          <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400&h=260&fit=crop&auto=format" alt="Peixe grelhado com ervas">
+          <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400&h=260&fit=crop&auto=format" alt="Peixe grelhado com ervas" loading="lazy" onerror="this.style.display='none'">
           <span>Peixes grelhados</span>
         </article>
         <article>
-          <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?w=400&h=260&fit=crop&auto=format" alt="Sushi variado">
+          <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?w=400&h=260&fit=crop&auto=format" alt="Sushi variado" loading="lazy" onerror="this.style.display='none'">
           <span>Sushi</span>
         </article>
         <article>
-          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=260&fit=crop&auto=format" alt="Salada fresca colorida">
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=260&fit=crop&auto=format" alt="Salada fresca colorida" loading="lazy" onerror="this.style.display='none'">
           <span>Saladas</span>
         </article>
         <article>
-          <img src="https://images.unsplash.com/photo-1452195100486-9cc805987862?w=400&h=260&fit=crop&auto=format" alt="Tábua de queijos leves">
+          <img src="https://images.unsplash.com/photo-1452195100486-9cc805987862?w=400&h=260&fit=crop&auto=format" alt="Tábua de queijos leves" loading="lazy" onerror="this.style.display='none'">
           <span>Queijos leves</span>
         </article>
         <article>
-          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=260&fit=crop&auto=format" alt="Prato da culinária mediterrânea">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=260&fit=crop&auto=format" alt="Prato da culinária mediterrânea" loading="lazy" onerror="this.style.display='none'">
           <span>Culinária mediterrânea</span>
         </article>
       </div>
@@ -292,17 +317,17 @@
       <form class="contact-form" id="contact-form">
         <label>
           Nome
-          <input type="text" name="nome" placeholder="Seu nome">
+          <input type="text" name="nome" placeholder="Seu nome" required>
         </label>
         <label>
           E-mail
-          <input type="email" name="email" placeholder="voce@email.com">
+          <input type="email" name="email" placeholder="voce@email.com" required>
         </label>
         <label>
           Mensagem
-          <textarea name="mensagem" rows="4" placeholder="Olá, gostaria de saber mais sobre o Rosalina."></textarea>
+          <textarea name="mensagem" rows="4" placeholder="Olá, gostaria de saber mais sobre o Rosalina." required></textarea>
         </label>
-        <button type="submit">Enviar mensagem</button>
+        <button type="submit">Enviar via WhatsApp</button>
         <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
       </form>
     </section>
@@ -312,6 +337,8 @@
     <strong>Rosalina Selection</strong>
     <span>Portugal, Vinho Verde, Amarantes • Loureiro, Trajadura e Avesso • 750 ml</span>
   </footer>
+
+  <div class="toast" id="toast" role="alert" aria-live="assertive"></div>
 
   <script>
     const form = document.querySelector("#contact-form");
@@ -331,14 +358,25 @@
     const summaryTotal = document.querySelector("#summary-total");
     const checkoutForm = document.querySelector("#checkout-form");
     const checkoutStatus = document.querySelector("#checkout-status");
+    const cartQtyMinus = document.querySelector("#cart-qty-minus");
+    const cartQtyPlus = document.querySelector("#cart-qty-plus");
+    const toastEl = document.querySelector("#toast");
     const unitPrice = Number(document.querySelector(".price").dataset.unitPrice);
     const whatsappNumber = "5521989014962";
     let cartCount = 0;
+    let toastTimer = null;
 
     const currency = new Intl.NumberFormat("pt-BR", {
       style: "currency",
       currency: "BRL"
     });
+
+    function showToast(message) {
+      toastEl.textContent = message;
+      toastEl.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toastEl.classList.remove("show"), 3000);
+    }
 
     function setQuantity(value) {
       const normalized = Math.min(24, Math.max(1, Number(value) || 1));
@@ -366,6 +404,7 @@
       summaryQuantity.textContent = `${cartCount} un.`;
       summaryTotal.textContent = currency.format(cartCount * unitPrice);
       cartBadge.textContent = String(cartCount);
+      cartBadge.classList.toggle("hidden", cartCount === 0);
     }
 
     quantityButtons.forEach((button) => {
@@ -381,25 +420,33 @@
     cartClose.addEventListener("click", closeCart);
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        closeCart();
-      }
+      if (event.key === "Escape") closeCart();
     });
 
     function addToCart() {
-      cartCount += setQuantity(quantityInput.value);
+      const qty = setQuantity(quantityInput.value);
+      cartCount += qty;
       updateCart();
-      checkoutStatus.textContent = `Produto adicionado ao carrinho: ${setQuantity(quantityInput.value)} unidade(s).`;
+      showToast(`${qty} garrafa${qty > 1 ? "s" : ""} adicionada${qty > 1 ? "s" : ""} ao carrinho.`);
       quantityInput.value = 1;
     }
 
-    addToCartButton.addEventListener("click", () => {
-      addToCart();
+    cartQtyMinus.addEventListener("click", () => {
+      if (cartCount > 0) {
+        cartCount = Math.max(0, cartCount - 1);
+        updateCart();
+      }
     });
+
+    cartQtyPlus.addEventListener("click", () => {
+      cartCount = Math.min(24, cartCount + 1);
+      updateCart();
+    });
+
+    addToCartButton.addEventListener("click", addToCart);
 
     buyNowCta.addEventListener("click", (event) => {
       event.preventDefault();
-      addToCart();
       document.querySelector("#comprar").scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
@@ -426,18 +473,30 @@
         `Quantidade: ${cartCount} unidade(s)`,
         `Subtotal: ${currency.format(total)}`,
         "Produto: Rosalina Selection Branco 750 ml"
-      ].join("%0A");
+      ].join("\n");
 
-      window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank", "noopener,noreferrer");
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
       checkoutStatus.textContent = "Pedido enviado para o WhatsApp. Aguarde o contato da equipe.";
       checkoutForm.reset();
       cartCount = 0;
       updateCart();
+      closeCart();
     });
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      status.textContent = "Mensagem preparada. A equipe Rosalina retornará o contato.";
+      const formData = new FormData(form);
+      const nome = String(formData.get("nome") || "").trim();
+      const email = String(formData.get("email") || "").trim();
+      const mensagem = String(formData.get("mensagem") || "").trim();
+      const message = [
+        "Olá! Mensagem recebida pelo site Rosalina Selection.",
+        `Nome: ${nome}`,
+        `E-mail: ${email}`,
+        `Mensagem: ${mensagem}`
+      ].join("\n");
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+      status.textContent = "Mensagem enviada para o WhatsApp da equipe Rosalina.";
       form.reset();
     });
   </script>
