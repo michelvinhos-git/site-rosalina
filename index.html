@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rosalina Selection | Vinho Branco</title>
+  <meta name="description" content="Rosalina Selection, vinho branco português leve e aromático da região dos Vinhos Verdes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="floral-shadow floral-shadow-left" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="floral-shadow floral-shadow-right" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Rosalina Selection">
+      <span>Rosalina</span>
+      <small>Selection</small>
+    </a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#vinho">O vinho</a>
+      <a href="#comprar">Comprar</a>
+      <a href="#vinho-verde">Vinho Verde</a>
+      <a href="#ficha">Ficha técnica</a>
+      <a href="#harmonizacao">Harmonização</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Vinho branco • Portugal, Vinho Verde</p>
+        <h1 id="hero-title">Rosalina Selection</h1>
+        <p class="lead">
+          Um vinho branco português leve, fresco e aromático, elaborado para
+          celebrar momentos especiais com autenticidade, delicadeza e elegância.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#comprar">Comprar agora</a>
+          <a class="button ghost" href="#ficha">Ver ficha técnica</a>
+          <a class="button ghost" href="#harmonizacao">Harmonizar</a>
+        </div>
+      </div>
+      <figure class="hero-visual">
+        <img src="assets/vinho-rosalina-hero-quadrado.png" alt="Vinho Rosalina Selection servido no vinhedo com taça e harmonização">
+      </figure>
+    </section>
+
+    <section class="quick-facts" aria-label="Informações principais">
+      <article>
+        <span class="fact-icon">°C</span>
+        <strong>8°C a 10°C</strong>
+        <small>Temperatura ideal</small>
+      </article>
+      <article>
+        <span class="fact-icon">ml</span>
+        <strong>750 ml</strong>
+        <small>Volume</small>
+      </article>
+      <article>
+        <span class="fact-icon">%</span>
+        <strong>12% vol.</strong>
+        <small>Teor alcoólico</small>
+      </article>
+      <article>
+        <span class="fact-icon">BR</span>
+        <strong>Vinho Verde</strong>
+        <small>Origem</small>
+      </article>
+    </section>
+
+    <section class="section shop" id="comprar" aria-labelledby="comprar-title">
+      <div class="shop-intro">
+        <p class="eyebrow">Loja online</p>
+        <h2 id="comprar-title">Compre o Rosalina Selection.</h2>
+        <p>
+          Garrafa de 750 ml, vinho branco português fino seco, ideal para servir entre
+          8°C e 10°C. Pedido mínimo de uma unidade.
+        </p>
+      </div>
+
+      <div class="commerce-layout">
+        <article class="product-card">
+          <div class="product-media">
+            <img src="assets/vinho-rosalina-fundo-branco.png" alt="Garrafa do vinho Rosalina Selection em fundo branco">
+          </div>
+          <div class="product-info">
+            <p class="stock">Em estoque</p>
+            <h3>Rosalina Selection Branco 750 ml</h3>
+            <p class="product-description">
+              Vinho branco leve, aromático e refrescante, produzido em Portugal,
+              na região dos Vinhos Verdes, em Amarantes.
+            </p>
+            <strong class="price" data-unit-price="117.9">R$ 117,90</strong>
+            <div class="buy-controls">
+              <label for="quantity">Quantidade</label>
+              <div class="quantity-control">
+                <button type="button" class="quantity-button" data-step="-1" aria-label="Diminuir quantidade">−</button>
+                <input id="quantity" type="number" min="1" max="24" value="1">
+                <button type="button" class="quantity-button" data-step="1" aria-label="Aumentar quantidade">+</button>
+              </div>
+            </div>
+            <button class="add-to-cart" type="button">Adicionar ao carrinho</button>
+          </div>
+        </article>
+
+        <aside class="cart" aria-labelledby="cart-title">
+          <div class="cart-header">
+            <p class="eyebrow">Carrinho</p>
+            <h3 id="cart-title">Seu pedido</h3>
+          </div>
+          <div class="cart-line">
+            <span>Rosalina Selection</span>
+            <strong id="cart-quantity">0 un.</strong>
+          </div>
+          <div class="cart-line">
+            <span>Subtotal</span>
+            <strong id="cart-total">R$ 0,00</strong>
+          </div>
+          <form class="checkout-form" id="checkout-form">
+            <label>
+              Nome completo
+              <input type="text" name="cliente" placeholder="Seu nome" required>
+            </label>
+            <label>
+              WhatsApp
+              <input type="tel" name="whatsapp" placeholder="(00) 00000-0000" required>
+            </label>
+            <label>
+              Cidade e estado
+              <input type="text" name="cidade" placeholder="Ex.: Bento Gonçalves, RS" required>
+            </label>
+            <button type="submit">Finalizar pedido</button>
+            <p class="form-status" id="checkout-status" role="status" aria-live="polite"></p>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section class="green-wine-section" id="vinho-verde" aria-labelledby="vinho-verde-title">
+      <div class="green-wine-content">
+        <p class="eyebrow">Origem portuguesa</p>
+        <h2 id="vinho-verde-title">O que é Vinho Verde?</h2>
+        <p>
+          Vinho Verde é uma denominação de origem do noroeste de Portugal,
+          conhecida por vinhos leves, frescos e vibrantes. O nome não indica
+          a cor do vinho, mas a região e o estilo jovem, aromático e cheio de
+          vivacidade.
+        </p>
+        <p>
+          No Rosalina Selection, as uvas Loureiro, Trajadura e Avesso revelam
+          esse perfil com notas florais, frutas cítricas, boa acidez e final
+          delicado. É um vinho pensado para servir bem gelado, acompanhar pratos
+          leves e trazer frescor à mesa.
+        </p>
+        <div class="green-wine-facts" aria-label="Características do Vinho Verde">
+          <span>Leve</span>
+          <span>Fresco</span>
+          <span>Aromático</span>
+          <span>Português</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section split" id="vinho">
+      <div>
+        <p class="eyebrow">Perfil</p>
+        <h2>Leveza, frescor e perfume frutado.</h2>
+      </div>
+      <div class="copy-block">
+        <p>
+          Rosalina Selection combina notas florais delicadas, frutas cítricas,
+          maçã verde e toques tropicais suaves. No paladar, apresenta corpo
+          leve, boa acidez e final agradável.
+        </p>
+        <p>
+          Elaborado com castas típicas da região dos Vinhos Verdes, o rótulo
+          celebra frescor, leveza e a tradição portuguesa com elegância.
+        </p>
+      </div>
+    </section>
+
+    <section class="section technical" id="ficha" aria-labelledby="ficha-title">
+      <div class="section-heading">
+        <p class="eyebrow">Ficha técnica</p>
+        <h2 id="ficha-title">Rosalina em detalhes</h2>
+      </div>
+      <figure class="tech-sheet">
+        <img src="assets/ficha-tecnica-rosalina-paisagem.png" alt="Ficha técnica completa do vinho Rosalina Selection em formato paisagem">
+      </figure>
+    </section>
+
+    <section class="section tasting" aria-labelledby="notas-title">
+      <div class="section-heading">
+        <p class="eyebrow">Notas de degustação</p>
+        <h2 id="notas-title">Um branco para servir bem gelado.</h2>
+      </div>
+      <div class="tasting-list">
+        <article>
+          <h3>Visual</h3>
+          <p>Amarelo-palha claro com reflexos esverdeados.</p>
+        </article>
+        <article>
+          <h3>Aroma</h3>
+          <p>Notas florais delicadas, frutas cítricas, maçã verde e toques tropicais suaves.</p>
+        </article>
+        <article>
+          <h3>Sabor</h3>
+          <p>Leve, refrescante e equilibrado, com boa acidez e final agradável e persistente.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section pairings" id="harmonizacao" aria-labelledby="harmonizacao-title">
+      <div>
+        <p class="eyebrow">Harmonização</p>
+        <h2 id="harmonizacao-title">À mesa, ele prefere frescor.</h2>
+      </div>
+      <div class="pairing-grid">
+        <article>
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=260&fit=crop&auto=format" alt="Frutos do mar frescos">
+          <span>Frutos do mar</span>
+        </article>
+        <article>
+          <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400&h=260&fit=crop&auto=format" alt="Peixe grelhado com ervas">
+          <span>Peixes grelhados</span>
+        </article>
+        <article>
+          <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?w=400&h=260&fit=crop&auto=format" alt="Sushi variado">
+          <span>Sushi</span>
+        </article>
+        <article>
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=260&fit=crop&auto=format" alt="Salada fresca colorida">
+          <span>Saladas</span>
+        </article>
+        <article>
+          <img src="https://images.unsplash.com/photo-1452195100486-9cc805987862?w=400&h=260&fit=crop&auto=format" alt="Tábua de queijos leves">
+          <span>Queijos leves</span>
+        </article>
+        <article>
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=260&fit=crop&auto=format" alt="Prato da culinária mediterrânea">
+          <span>Culinária mediterrânea</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section contact" id="contato" aria-labelledby="contato-title">
+      <div>
+        <p class="eyebrow">Contato</p>
+        <h2 id="contato-title">Leve Rosalina para a sua carta.</h2>
+        <p>
+          Fale com a equipe para disponibilidade, safra e condições comerciais.
+        </p>
+      </div>
+      <form class="contact-form" id="contact-form">
+        <label>
+          Nome
+          <input type="text" name="nome" placeholder="Seu nome">
+        </label>
+        <label>
+          E-mail
+          <input type="email" name="email" placeholder="voce@email.com">
+        </label>
+        <label>
+          Mensagem
+          <textarea name="mensagem" rows="4" placeholder="Olá, gostaria de saber mais sobre o Rosalina."></textarea>
+        </label>
+        <button type="submit">Enviar mensagem</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <strong>Rosalina Selection</strong>
+    <span>Portugal, Vinho Verde, Amarantes • Loureiro, Trajadura e Avesso • 750 ml</span>
+  </footer>
+
+  <script>
+    const form = document.querySelector("#contact-form");
+    const status = document.querySelector("#form-status");
+    const quantityInput = document.querySelector("#quantity");
+    const quantityButtons = document.querySelectorAll(".quantity-button");
+    const addToCartButton = document.querySelector(".add-to-cart");
+    const cartQuantity = document.querySelector("#cart-quantity");
+    const cartTotal = document.querySelector("#cart-total");
+    const checkoutForm = document.querySelector("#checkout-form");
+    const checkoutStatus = document.querySelector("#checkout-status");
+    const unitPrice = Number(document.querySelector(".price").dataset.unitPrice);
+    let cartCount = 0;
+
+    const currency = new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL"
+    });
+
+    function setQuantity(value) {
+      const normalized = Math.min(24, Math.max(1, Number(value) || 1));
+      quantityInput.value = normalized;
+      return normalized;
+    }
+
+    function updateCart() {
+      cartQuantity.textContent = `${cartCount} un.`;
+      cartTotal.textContent = currency.format(cartCount * unitPrice);
+    }
+
+    quantityButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        setQuantity(Number(quantityInput.value) + Number(button.dataset.step));
+      });
+    });
+
+    quantityInput.addEventListener("input", () => setQuantity(quantityInput.value));
+
+    addToCartButton.addEventListener("click", () => {
+      cartCount += setQuantity(quantityInput.value);
+      updateCart();
+      checkoutStatus.textContent = "Produto adicionado ao carrinho.";
+    });
+
+    checkoutForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (cartCount < 1) {
+        checkoutStatus.textContent = "Adicione pelo menos uma garrafa ao carrinho.";
+        return;
+      }
+
+      checkoutStatus.textContent = `Pedido recebido: ${cartCount} garrafa(s), total ${currency.format(cartCount * unitPrice)}.`;
+      checkoutForm.reset();
+      cartCount = 0;
+      updateCart();
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      status.textContent = "Mensagem preparada. A equipe Rosalina retornará o contato.";
+      form.reset();
+    });
+  </script>
+</body>
+</html>
